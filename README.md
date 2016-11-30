@@ -9,3 +9,5 @@
     "finishingDate": null
   }
 ]
+
+@RequestMapping(value = "/bottle", method = RequestMethod.POST)
