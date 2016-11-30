@@ -41,3 +41,14 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.192</version>
 		</dependency>
+
+    @Bean
+    public DataSource dataSource() {
+        EmbeddedDatabaseBuilder edb = new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:sql/schema.sql");
+        if (dbInit) {
+            edb.addScript("classpath:sql/start-data.sql");
+        }
+        return edb.build();
+    }
