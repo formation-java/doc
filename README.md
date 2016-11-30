@@ -15,7 +15,7 @@
 @RequestBody
 
  @RequestMapping(value = "/bottle/{id}", method = RequestMethod.GET)
-    public Bottle getBottle(@PathVariable String id) {
+    public Bottle getBottle(@PathVariable Long id) {
     
 
   @Bean
@@ -32,4 +32,12 @@
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 			<version>2.6.1</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.192</version>
 		</dependency>
