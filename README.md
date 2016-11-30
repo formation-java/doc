@@ -14,6 +14,10 @@
 @RequestMapping(value = "/bottle", method = RequestMethod.POST)
 @RequestBody
 
+ @RequestMapping(value = "/bottle/{id}", method = RequestMethod.GET)
+    public Bottle getBottle(@PathVariable String id) {
+    
+
   @Bean
     public Jackson2ObjectMapperBuilder jacksonBuilder() {
         Jackson2ObjectMapperBuilder b = new Jackson2ObjectMapperBuilder();
