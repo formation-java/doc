@@ -68,5 +68,15 @@ class BottleMapper implements RowMapper<Bottle> {
 
 
 
+
+BottleEndpoint
+    @Autwired servoce   
+        => BottleService
+            @Autowired Dao
+            @Autowired RequestState
+            @Autowired UserSession
+            @Autowired ApplicationState
+                => bottles.stream().forEach(bottle -> dao.addBottle)
+
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
