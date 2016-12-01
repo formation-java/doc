@@ -65,3 +65,8 @@ class BottleMapper implements RowMapper<Bottle> {
                     finishingDate != null ? finishingDate.toLocalDateTime() : null);
         }
     }
+
+
+
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
