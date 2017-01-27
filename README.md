@@ -62,3 +62,13 @@ private JdbcTemplate jdbcTemplate;
 public Bottle get(Long id) {
     return jdbcTemplate.queryForObject("SELECT * FROM bottle WHERE id = ?", new Object[]{id}, bottleMapper);
 }
+
+To access to H2 console, implement ServletContextInitializer with the Configuration class, and add :
+ 
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        ServletRegistration.Dynamic h2ConsoleServlet = servletContext.addServlet("H2Console", new org.h2.server.web.WebServlet());
+        h2ConsoleServlet.addMapping("/h2-console/*");
+        h2ConsoleServlet.setInitParameter("-properties", "src/main/resources/");
+        h2ConsoleServlet.setLoadOnStartup(1);
+    }
